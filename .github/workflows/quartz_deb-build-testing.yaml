@@ -9,11 +9,13 @@ jobs:
       - run: echo "The branch is ${{ github.ref }} and the repo is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
+      - run: pwd && ls -l
+
       - name: Build .deb Package
         uses: jiro4989/build-deb-action@v2
         with:
           package: quartz
-          package_root: ./build_action_v2
+          package_root: ./builder-files/build_action_v2
           maintainer: 'https://github.com/sysarmy/quartz/ <root@sysarmy.com>'
           version: 0.3 #${{ github.ref }} # refs/tags/v*.*.*
           arch: 'all'
@@ -30,7 +32,6 @@ jobs:
 #          package: package.yaml
 
 
-      - run: pwd && ls -l
       - uses: actions/upload-artifact@v3
         with:
           name: quartz_deb
