@@ -10,7 +10,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Build .deb Package
-      - uses: jiro4989/build-deb-action@v2
+        uses: jiro4989/build-deb-action@v2
         with:
           package: quartz_0.3_all
           package_root: ./build_action_v2
