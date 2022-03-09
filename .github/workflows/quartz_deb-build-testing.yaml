@@ -24,4 +24,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: quartz_deb
-          path: ./builder-files/build_action_v2/quartz_0.3_all.deb
+          path: ./quartz_0.3_all.deb
