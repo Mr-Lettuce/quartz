@@ -9,13 +9,26 @@ jobs:
       - run: echo "The branch is ${{ github.ref }} and the repo is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-      - uses: kentik/pkg@v1.0.0-rc8
+      - uses: jiro4989/build-deb-action@v2
         with:
-          name: quartz
-          version: 0.3
-          arch: x86_64
-          format: deb
-          package: package.yaml
+          package: quartz_0.3_all
+          package_root: ./build_action_v2
+          maintainer: 'https://github.com/sysarmy/quartz/ <root@sysarmy.com>'
+          version: 0.3 #${{ github.ref }} # refs/tags/v*.*.*
+          arch: 'all'
+          depends: 'python3 (>= 3.7.0), python3-pip'
+          desc: 'Quartz se armó con la idea de ser un MRTG de los proveedores de Internet de Argentina. Es un dashboard público que permite obtener información sobre las conexiones a Internet de diferentes proveedores en diferentes zonas del país. La información se obtiene de clientes que envían de manera periódica ejecuciones del cliente de Quartz, que hace pings a diferentes anchors de RIPE Atlas.'  
+        
+        
+#      - uses: kentik/pkg@v1.0.0-rc8
+#        with:
+#          name: quartz
+#          version: 0.3
+#          arch: x86_64
+#          format: deb
+#          package: package.yaml
+
+
       - run: pwd && ls -l
       - uses: actions/upload-artifact@v3
         with:
