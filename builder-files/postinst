@@ -28,7 +28,7 @@ read ans; case $ans in
 done
 
 echo "$(tput setaf 2) Instalando dependencias de Python$(tput sgr 0)"
-pip3 install logging42 requests configparser argparse
+pip3 install logging42 requests configparser argparse icmplib
 wait $!
 if [ $? != 0 ]; then echo "$(tput setaf 1) Hubo un error instalando dependencias de python necesarias (logging, requests, configparser, argparse)$(tput sgr 0)" && read -n 1 -r -s -p $'Presione una tecla para continuar\n'; fi
 echo "$(tput setaf 2) Instalacion finalizada$(tput sgr 0)"
